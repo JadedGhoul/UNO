@@ -21,7 +21,8 @@ public class UNODeck {
     public void reset(){
         UNOCard.Color[] colors=UNOCard.Color.values();
         cardsInDeck =0;
-        for(int i =0;i<colors.length-1;i++){
+        
+        for(int i = 0;i<colors.length-1;i++){
             UNOCard.Color color = colors[i];
             cards[cardsInDeck++] = new UNOCard(color, UNOCard.Value.getValue(0));
             
@@ -63,7 +64,7 @@ public class UNODeck {
     
     for (int i = 0; i< cards.length; i++){
     int randomValue= i+ random.nextInt(n-i);
-    UNO randomCard= cards[randomValue];
+    UNOCard randomCard= cards[randomValue];
     cards[randomValue]= cards[i];
     cards[i]= randomCard;
     }
@@ -94,7 +95,7 @@ public class UNODeck {
      throw new IllegalArgumentException("Cannot draw " + n + " cards since there are only " + cardsInDeck + " cards.");
     
      }
-     UNOCard [] ret= UNOCard [n];
+     UNOCard[] ret= new UNOCard[n];
      
      for(int i= 0; i< n; i++){
      ret[i] = cards[--cardsInDeck];

@@ -5,9 +5,7 @@
  */
 package uno;
 
-import java.awt.Font;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -20,7 +18,7 @@ public class Game {
     
     private UNODeck deck;
     private ArrayList<ArrayList<UNOCard>> playerHand;
-    private ArrayList<UNOCard> stockPile;
+    private ArrayList<UNOCard> stockpile;
     
     private UNOCard.Color validColor;
     private UNOCard.Value validValue;
@@ -55,7 +53,7 @@ public class Game {
      if(card.getValue() == UNOCard.Value.Wild){
          start(game);
      }
-     if (card.getValue()== UNOCard.Value.WildFour || card.getValue() == UNOCard.Value.DrawTwo){
+     if (card.getValue()== UNOCard.Value.Wild_Four || card.getValue() == UNOCard.Value.DrawTwo){
          
      }
      if(card.getValue() == UNOCard.Value.Skip){
@@ -131,7 +129,7 @@ public class Game {
         if(card.getColor() == UNOCard.Color.Wild){
             validColor = declaredColor;
         }
-        if(card.getValue() == UNOCard.Value.DrawTwo){
+        if(card.getValue() == UnoCard.Value.DrawTwo){
             pid = playerIds[currentPlayer];
             getPlayerHand(pid).add(deck.drawCard());
             getPlayerHand(pid).add(deck.drawCard());

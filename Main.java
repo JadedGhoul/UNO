@@ -1,4 +1,4 @@
-package uno;
+package com.mycompany.unodemo;
 
 
 public class Main {

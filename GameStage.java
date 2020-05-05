@@ -3,13 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uno;
+package com.mycompany.unodemo;
 
+import java.awt.Font;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.ImageIcon;
 
 
 /*
@@ -21,7 +27,7 @@ public class GameStage extends javax.swing.JFrame {
 
    private AddPlayerNames addPlayers = new AddPlayerNames();
    ArrayList<String>temp=new ArrayList<>();
-   String[]pids;
+   String[]pns;
    Game game;
    ArrayList<JButton> cardButtons = new ArrayList<JButton>();
    ArrayList<String>cardIds;
@@ -29,15 +35,15 @@ public class GameStage extends javax.swing.JFrame {
    
     public GameStage(){
 }
-    public GameStage(ArrayList<String> playerIds) {
+    public GameStage(ArrayList<String> playerNames) {
         initComponents();
-        temp = playerIds;
-        pids = temp.toArray(new String[temp.size()]);
-        game = new Game(pids);
+        temp = playerNames;
+        pns = temp.toArray(new String[temp.size()]);
+        game = new Game(pns);
         populateArrayList ();
         game.start(game);
-        setPidName();
-        topCardButton. setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGS/small/" + game.getTopCardImage())));
+        setPName();
+        deckPile. setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\" + game.getTopCardImage()));
         setButtonIcons();
 
         
@@ -48,7 +54,7 @@ public class GameStage extends javax.swing.JFrame {
         String[] cardNames = listString.split(",");
         cardIds = new ArrayList<>(Arrays.asList(cardNames));
         for (int i = 0; i<cardIds.size();i++){
-            cardButtons.get(i).setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGs/small/" + cardIds.get(i)+ ".png")));
+            cardButtons.get(i).setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\" + cardIds.get(i)+ ".png"));
         }
         for (int i = cardIds.size();i<cardButtons.size(); i++){
             cardButtons.get(i).setIcon(null);
@@ -72,14 +78,14 @@ public class GameStage extends javax.swing.JFrame {
         cardButtons.add(jButton14);
         cardButtons.add(jButton15);
     }
-public void setPidName(){
+public void setPName(){
 
 String currentPlayer= game.getCurrentPlayer();
-pidNameLabel.setText(currentPlayer + " 's  Cards");
+pidNameLabel.setText(currentPlayer + "'s  Cards");
 
 }
-public void setPidName(String currentPlayer){
-pidNameLabel.setText(currentPlayer+ " s  Cards");
+public void setPName(String currentPlayer){
+pidNameLabel.setText(currentPlayer+ "'s  Cards");
 
 }
 
@@ -115,7 +121,6 @@ pidNameLabel.setText(currentPlayer+ " s  Cards");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("UNO");
-        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jButton1.setText("jButton1");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -232,7 +237,7 @@ pidNameLabel.setText(currentPlayer+ " s  Cards");
             }
         });
 
-        topCardButton.setText("jButton17");
+        topCardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\card_back.png")); // NOI18N
 
         deckPile.setText("jButton18");
 
@@ -244,129 +249,131 @@ pidNameLabel.setText(currentPlayer+ " s  Cards");
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton5)
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton6)
+                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton7)
+                        .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton9)
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton10))
+                        .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(pidNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton11)
+                        .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton12)
+                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton13)
+                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton14)
+                        .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton15)
+                        .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(drawCardButton)
                         .addContainerGap())))
             .addGroup(layout.createSequentialGroup()
-                .addComponent(topCardButton)
-                .addGap(18, 18, 18)
-                .addComponent(deckPile)
+                .addComponent(topCardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(deckPile, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(topCardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deckPile, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(topCardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(deckPile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(pidNameLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(drawCardButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void drawCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drawCardButtonActionPerformed
-        Jlabel message = new Jlabel(game.getCurrentPlayer() + "Drew card!");
-message.setFont(new Font("Arial", Font.BOLD, 48));
+        JLabel messageE = new JLabel(game.getCurrentPlayer() + "Drew card!");
+messageE.setFont(new Font("Arial", Font.BOLD, 48));
 
-JOptionPane.showMessDiagealog(null, message);
+JOptionPane.showMessageDialog(null, messageE);
 try{
 game.submitDraw(game.getCurrentPlayer());
 }
-catch(invalidPlayerTurnException ex){
-Logger.getLogger(GameStage.class.getName()).log(Level.SEVERE, null, ex);
+catch(InvalidPlayerTurnException ex){
 
-this.setPidName(game.getCurrentPlayer());
+   Logger.getLogger(GameStage.class.getName()).log(Level.SEVERE, null, ex);
+
+this.setPName(game.getCurrentPlayer());
 this.setButtonIcons();
     }//GEN-LAST:event_drawCardButtonActionPerformed
     }
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     if(cardsIds.get(0)!= null){
+     if(cardIds.get(0)!= null){
         int index= 0;
         String cardId= cardIds.get(0);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     }//GEN-LAST:event_jButton1ActionPerformed
     }
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     if(cardsIds.get(1)!= null){
+     if(cardIds.get(1)!= null){
         int index= 1;
         String cardId= cardIds.get(1);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);   
     }//GEN-LAST:event_jButton2ActionPerformed
     }
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       if(cardsIds.get(2)!= null){
+       if(cardIds.get(2)!= null){
         int index= 2;
         String cardId= cardIds.get(2);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton3ActionPerformed
     }
@@ -374,132 +381,132 @@ this.setButtonIcons();
         if(cardIds.get(3)!= null){
         int index= 3;
         String cardId= cardIds.get(3);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton4ActionPerformed
     }
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        if(cardsIds.get(4)!= null){
+        if(cardIds.get(4)!= null){
         int index= 4;
         String cardId= cardIds.get(4);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton5ActionPerformed
     }
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-            if(cardsIds.get(5)!= null){
+            if(cardIds.get(5)!= null){
         int index= 5;
         String cardId= cardIds.get(5);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     
     }//GEN-LAST:event_jButton6ActionPerformed
     }
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-          if(cardsIds.get(6)!= null){
+          if(cardIds.get(6)!= null){
         int index= 6;
         String cardId= cardIds.get(6);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton7ActionPerformed
     }
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-      if(cardsIds.get(7)!= null){
+      if(cardIds.get(7)!= null){
         int index= 7;
         String cardId= cardIds.get(7);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this,deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
     }
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-       if(cardsIds.get(8)!= null){
+       if(cardIds.get(8)!= null){
         int index= 8;
         String cardId= cardIds.get(8);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton9ActionPerformed
     }
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-          if(cardsIds.get(9)!= null){
+          if(cardIds.get(9)!= null){
         int index= 9;
         String cardId= cardIds.get(9);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this,deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton10ActionPerformed
     }
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-         if(cardsIds.get(10)!= null){
+         if(cardIds.get(10)!= null){
         int index= 10;
         String cardId= cardIds.get(10);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton11ActionPerformed
     }
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-       if(cardsIds.get(11)!= null){
+       if(cardIds.get(11)!= null){
         int index= 11;
         String cardId= cardIds.get(11);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton12ActionPerformed
     }
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-       if(cardsIds.get(12)!= null){
+       if(cardIds.get(12)!= null){
         int index= 12;
         String cardId= cardIds.get(12);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton13ActionPerformed
     }
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-         if(cardsIds.get(13)!= null){
+         if(cardIds.get(13)!= null){
         int index= 13;
         String cardId= cardIds.get(13);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this, deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton14ActionPerformed
     }
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-         if(cardsIds.get(14)!= null){
+         if(cardIds.get(14)!= null){
         int index= 14;
         String cardId= cardIds.get(14);
-        window= new PopUp(cardId,game,index,cardButtons,this, topCardButton);
+        window= new PopUp(cardId,game,index,cardButtons,this,deckPile);
         window.setBounds(750,40,700,800);
         window.setVisible(true);
-        window.setResizeable(false);
+        window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
     }//GEN-LAST:event_jButton15ActionPerformed
     }

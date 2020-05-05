@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uno;
+package com.mycompany.unodemo;
 
-import com.sun.istack.internal.logging.Logger;
+//import com.sun.istack.internal.logging.Logger;
 import java.util.ArrayList;
 import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 
 /**
@@ -35,7 +36,7 @@ public class PopUp extends javax.swing.JFrame {
         playerHand = game.getPlayerHand(game.getCurrentPlayer());
         choice = index;
         this.cardButtons = cardButtons;
-        cardLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGs/large/" + cardImage + ".png")));
+        cardLabel.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\" + cardImage + ".png"));
         this.gameStage = gamestage;
         this.topCardButton = topCardButton;
         
@@ -56,6 +57,8 @@ public class PopUp extends javax.swing.JFrame {
         cardLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(250, 250));
 
         useCardButton.setText("Use Card");
         useCardButton.addActionListener(new java.awt.event.ActionListener() {
@@ -112,41 +115,41 @@ public class PopUp extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void useCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useCardButtonActionPerformed
-        PickColorFrame pickColor = new PickColorFrame(this);
-        declaredColor = pickColor.choseColor(playerHand.get(choice));
-        
-        if(declaredColor != null){
-            try{
-        
-            game.submitPlayerCard(game.getCurrentPlayer(),playerHand.get(choice),declaredColor);
-            }
-        
-            catch(InvalidColorSubmissionException ex) {
-                     Logger.getLogger(PopUp.class.getName()).log(Level.SEVERE,null,ex);
-                }
-            catch(InvalidValueSubmissionException ex) {
-                        Logger.getLogger(PopUp.class.getName()).log(Level.SEVERE,null,ex);
-
-                }
-            catch(InvalidPlayerTurnException ex) {
-                        Logger.getLogger(PopUp.class.getName()).log(Level.SEVERE,null,ex);
-
-                }
-            this.revalidate();
-            if(declaredColor != UNOCard.Color.Wild)
-            {
-                gameStage.setPidName(game.getCurrentPLayer());
-                gameStage.setButtonIcons();
-                topCardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGs/small/" + game.getTopCardImage() + game.getTopCardImage())));
-                this.dispose();
-            }
-                }
-    }//GEN-LAST:event_useCardButtonActionPerformed
-
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
+
+    private void useCardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_useCardButtonActionPerformed
+        PickColorFrame pickColor = new PickColorFrame(this);
+        declaredColor = pickColor.choseColor(playerHand.get(choice));
+
+        if(declaredColor != null){
+            try{
+
+                game.submitPlayerCard(game.getCurrentPlayer(),playerHand.get(choice),declaredColor);
+            }
+
+            catch(InvalidColorSubmissionException ex) {
+                Logger.getLogger(PopUp.class.getName()).log(Level.SEVERE,null,ex);
+            }
+            catch(InvalidValueSubmissionException ex) {
+                Logger.getLogger(PopUp.class.getName()).log(Level.SEVERE,null,ex);
+
+            }
+            catch(InvalidPlayerTurnException ex) {
+                Logger.getLogger(PopUp.class.getName()).log(Level.SEVERE,null,ex);
+
+            }
+            this.revalidate();
+            if(declaredColor != UNOCard.Color.Wild)
+            {
+                gameStage.setPName(game.getCurrentPlayer());
+                gameStage.setButtonIcons();
+                topCardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\"  + game.getTopCardImage()));
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_useCardButtonActionPerformed
 
     /**
      * @param args the command line arguments

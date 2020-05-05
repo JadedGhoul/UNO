@@ -1,4 +1,4 @@
-package uno;
+package com.mycompany.unodemo;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -6,10 +6,6 @@ package uno;
  * and open the template in the editor.
  */
 
-/**
- *
- * @author dariu
- */
 public class Menu extends javax.swing.JFrame {
 
     /**

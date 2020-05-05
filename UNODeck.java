@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uno;
+package com.mycompany.unodemo;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -16,6 +16,7 @@ public class UNODeck {
     
     public UNODeck(){
         cards = new UNOCard[108];
+        reset();
     }
     
     public void reset(){
@@ -104,4 +105,3 @@ public class UNODeck {
      }
      
 }
-    

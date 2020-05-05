@@ -3,19 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uno;
+package com.mycompany.unodemo;
 
 import java.awt.Font;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author dariu
- */
 public class PickColorFrame extends javax.swing.JFrame {
 
-   private UnoCard.Color wildColor = null;
+   private UNOCard.Color wildColor = null;
    Boolean allow = false;
    PopUp popUp;
    
@@ -28,9 +24,9 @@ public class PickColorFrame extends javax.swing.JFrame {
         initComponents();
         popUp = pop;
     }
-    public UnoCard.Color choseColor(UnoCard card)
+    public UNOCard.Color choseColor(UNOCard card)
     {
-        if(card.getColor() == UnoCard.Color.Wild)
+        if(card.getColor() == UNOCard.Color.Wild)
         {
          this.setVisible(true);
          this.setResizable(false);
@@ -150,62 +146,62 @@ public class PickColorFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void redButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_redButtonActionPerformed
-       wildColor = UnoCard.Color.Red;
-       JLabel messege = new JLabel("The Wild Card Color is Red!");
+       wildColor = UNOCard.Color.Red;
+       JLabel message = new JLabel("The Wild Card Color is Red!");
        message.setFont(new Font("Arial", Font.BOLD, 48));
        JOptionPane.showMessageDialog(null,message);
        allow = true;
        this.dispose();
-       popUp.declaredColor = UnoCard.Color.Red;
-       popUp.gameStage.setPidName(popUp.game.getCurrentPlayer());
+       popUp.declaredColor = UNOCard.Color.Red;
+       popUp.gameStage.setPName(popUp.game.getCurrentPlayer());
        popUp.gameStage.setButtonIcons();
-       popUp.topCardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGs/small/" + popUp.game.getTopCardImage)));
-       popUp.game.setCardColor(UnoCard.Color.Red);
+       popUp.topCardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\" + popUp.game.getTopCardImage()));
+       popUp.game.setCardColor(UNOCard.Color.Red);
        popUp.dispose();
     }//GEN-LAST:event_redButtonActionPerformed
 
     private void blueButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_blueButtonActionPerformed
-        wildColor = UnoCard.Color.Blue;
-       JLabel messege = new JLabel("The Wild Card Color is Blue!");
+        wildColor = UNOCard.Color.Blue;
+       JLabel message = new JLabel("The Wild Card Color is Blue!");
        message.setFont(new Font("Arial", Font.BOLD, 48));
        JOptionPane.showMessageDialog(null,message);
        allow = true;
        this.dispose();
-       popUp.declaredColor = UnoCard.Color.Blue;
-       popUp.gameStage.setPidName(popUp.game.getCurrentPlayer());
+       popUp.declaredColor = UNOCard.Color.Blue;
+       popUp.gameStage.setPName(popUp.game.getCurrentPlayer());
        popUp.gameStage.setButtonIcons();
-       popUp.topCardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGs/small/" + popUp.game.getTopCardImage)));
-       popUp.game.setCardColor(UnoCard.Color.Blue);
+       popUp.topCardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\" + popUp.game.getTopCardImage()));
+       popUp.game.setCardColor(UNOCard.Color.Blue);
        popUp.dispose();
     }//GEN-LAST:event_blueButtonActionPerformed
 
     private void greenButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_greenButtonActionPerformed
-        wildColor = UnoCard.Color.Green;
-       JLabel messege = new JLabel("The Wild Card Color is Green!");
+        wildColor = UNOCard.Color.Green;
+       JLabel message = new JLabel("The Wild Card Color is Green!");
        message.setFont(new Font("Arial", Font.BOLD, 48));
        JOptionPane.showMessageDialog(null,message);
        allow = true;
        this.dispose();
-       popUp.declaredColor = UnoCard.Color.Green;
-       popUp.gameStage.setPidName(popUp.game.getCurrentPlayer());
+       popUp.declaredColor = UNOCard.Color.Green;
+       popUp.gameStage.setPName(popUp.game.getCurrentPlayer());
        popUp.gameStage.setButtonIcons();
-       popUp.topCardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGs/small/" + popUp.game.getTopCardImage)));
-       popUp.game.setCardColor(UnoCard.Color.Green);
+       popUp.topCardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\" + popUp.game.getTopCardImage()));
+       popUp.game.setCardColor(UNOCard.Color.Green);
        popUp.dispose();
     }//GEN-LAST:event_greenButtonActionPerformed
 
     private void yellowButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yellowButtonActionPerformed
-       wildColor = UnoCard.Color.Yellow;
-       JLabel messege = new JLabel("The Wild Card Color is Yellow!");
+       wildColor = UNOCard.Color.Yellow;
+       JLabel message = new JLabel("The Wild Card Color is Yellow!");
        message.setFont(new Font("Arial", Font.BOLD, 48));
        JOptionPane.showMessageDialog(null,message);
        allow = true;
        this.dispose();
-       popUp.declaredColor = UnoCard.Color.Yellow;
-       popUp.gameStage.setPidName(popUp.game.getCurrentPlayer());
+       popUp.declaredColor = UNOCard.Color.Yellow;
+       popUp.gameStage.setPName(popUp.game.getCurrentPlayer());
        popUp.gameStage.setButtonIcons();
-       popUp.topCardButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/PNGs/small/" + popUp.game.getTopCardImage)));
-       popUp.game.setCardColor(UnoCard.Color.Yellow);
+       popUp.topCardButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\Leo\\OneDrive\\Desktop\\images\\PNGs\\small\\" + popUp.game.getTopCardImage()));
+       popUp.game.setCardColor(UNOCard.Color.Yellow);
        popUp.dispose();
     }//GEN-LAST:event_yellowButtonActionPerformed
 
